@@ -186,6 +186,7 @@
         "resource/tasks/PreStormProtocol.json",
         "resource/tasks/UTTU.json",
         "resource/tasks/CompleteInduction.json",
-        "resource/tasks/8bit.json"
+        "resource/tasks/8bit.json",
+        "resource/tasks/CharacterLevelUp.json"
     ]
 }

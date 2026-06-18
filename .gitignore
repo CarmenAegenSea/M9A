@@ -464,3 +464,4 @@ config/
 tmp/
 agent/libs/*.pyd
 .codex
+myProjext

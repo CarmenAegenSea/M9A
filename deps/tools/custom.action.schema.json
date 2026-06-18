@@ -64,7 +64,8 @@
                 "CISelectResearchers",
                 "EightBitCombatMove",
                 "EightBitScoreRecord",
-                "EightBitCombatInit"
+                "EightBitCombatInit",
+                "CultivationFindChar"
             ]
         }
     },
@@ -254,6 +255,9 @@
         },
         {
             "$ref": "#/$defs/EightBitCombatInit"
+        },
+        {
+            "$ref": "#/$defs/CultivationFindChar"
         }
     ],
     "$defs": {
@@ -1249,6 +1253,29 @@
                 "custom_action": {
                     "const": "EightBitCombatInit",
                     "description": "8-bit 战斗初始化，检测是否需要开启碰壁检测"
+                }
+            }
+        },
+        "CultivationFindChar": {
+            "allOf": [
+                {
+                    "$ref": "#/$defs/RequiredParam"
+                }
+            ],
+            "properties": {
+                "custom_action": {
+                    "const": "CultivationFindChar",
+                    "description": "在角色列表中 OCR 检索目标角色名，找到则点击，未找到则下滑重试"
+                },
+                "custom_action_param": {
+                    "type": "object",
+                    "properties": {
+                        "target_character": {
+                            "type": "string",
+                            "description": "目标角色名"
+                        }
+                    },
+                    "required": ["target_character"]
                 }
             }
         }

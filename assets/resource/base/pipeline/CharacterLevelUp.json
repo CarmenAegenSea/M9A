@@ -1,0 +1,137 @@
+{
+    "CharacterLevelUp": {
+        "desc": "角色培养",
+        "next": [
+            "CultivationClickHomeCharTag",
+            "[JumpBack]ReturnMain"
+        ]
+    },
+    "CultivationClickHomeCharTag": {
+        "desc": "进入角色页",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "CharacterLevelUp/HomeCharTag.png",
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": ["CultivationFindChar"]
+    },
+    "CultivationFindChar": {
+        "desc": "寻找角色详情卡",
+        "action": {
+            "type": "Custom",
+            "param": {
+                "custom_action": "CultivationFindChar",
+                "custom_action_param": {}
+            }
+        },
+        "next": ["CultivationClickLevelTab"],
+        "on_error": "ReturnMain"
+    },
+    "CultivationClickLevelTab": {
+        "desc": "点击进入角色详情页",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "CharacterLevelUp/LevelTab.png",
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 1000,
+        "next": [
+            "CultivationCheckMax",
+            "CultivationClickLevelTab"
+        ]
+    },
+    "CultivationCheckMax": {
+        "desc": "若未到最大等级,点击MAX",
+        "recognition": {
+            "type": "TemplateMatch",
+            "param": {
+                "template": "CharacterLevelUp/MAXTab.png",
+                "threshold": 0.8
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 500,
+        "next": [
+            "CultivationCheckPromote",
+            "CultivationCheckInsight",
+            "ReturnMain"
+        ]
+    },
+    "CultivationCheckPromote": {
+        "desc": "点击提升",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    400,
+                    600,
+                    480,
+                    80
+                ],
+                "expected": "提升"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 2000,
+        "next": [
+            "CultivationCheckMax"
+        ]
+    },
+    "CultivationCheckInsight": {
+        "desc": "若提升到最高等级改为点击洞悉",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    400,
+                    600,
+                    480,
+                    80
+                ],
+                "expected": "洞悉"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "next": [
+            "CultivationConfirmInsight"
+        ]
+    },
+    "CultivationConfirmInsight": {
+        "desc": "点击洞悉",
+        "recognition": {
+            "type": "OCR",
+            "param": {
+                "roi": [
+                    400,
+                    500,
+                    480,
+                    100
+                ],
+                "expected": "洞悉"
+            }
+        },
+        "action": {
+            "type": "Click"
+        },
+        "post_delay": 2000,
+        "next": [
+            "CultivationCheckMax"
+        ]
+    }
+}

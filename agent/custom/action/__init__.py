@@ -18,6 +18,7 @@ ACTION_MODULES = (
     "switch_account",
     "complete_induction",
     "eight_bit",
+    "character_level_up",
 )
 
 

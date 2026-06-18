@@ -1,0 +1,34 @@
+{
+    "task": [
+        {
+            "name": "角色培养",
+            "entry": "CharacterLevelUp",
+            "option": ["目标角色"],
+            "group": ["daily"]
+        }
+    ],
+    "option": {
+        "目标角色": {
+            "type": "input",
+            "label": "目标角色",
+            "inputs": [
+                {
+                    "name": "角色名",
+                    "pipeline_type": "string",
+                    "default": ""
+                }
+            ],
+            "pipeline_override": {
+                "CultivationFindChar": {
+                    "action": {
+                        "param": {
+                            "custom_action_param": {
+                                "target_character": "{角色名}"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
