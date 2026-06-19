@@ -12,9 +12,7 @@
             "type": "FeatureMatch",
             "param": {
                 "template": "CharacterLevelUp/HomeCharTag.png",
-                "count": 4,
-                "detector": "SIFT",
-                "ratio": 0.6
+                "ratio": 0.5
             }
         },
         "action": {
